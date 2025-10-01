@@ -54,9 +54,9 @@ if search_keyword:
                 st.dataframe(records, use_container_width=True)
 
                 # Show totals
-                st.markdown(f"**Total Debit (Paid):** {total_debit}")
+                st.markdown(f"**Total Quoatation:** {total_debit}")
                 st.markdown(f"**Total Credit (Received):** {total_credit}")
                 st.markdown(
-                    f"<span style='color:red; font-weight:bold'>Balance (Debit - Credit): {balance}</span>",
+                    f"<span style='color:red; font-weight:bold'>Balance: {balance}</span>",
                     unsafe_allow_html=True
                 )
