@@ -1,10 +1,5 @@
-<<<<<<< HEAD
+
 pandas 
 numpy 
 streamlit
-=======
-pandas 
-numpy 
-streamlit
->>>>>>> 5292e9b (Add Streamlit app with client search feature)
 fpdf
