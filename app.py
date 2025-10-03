@@ -26,18 +26,23 @@ def get_client_records(client_name):
 st.set_page_config(page_title="Client Transactions Search", layout="wide")
 st.title("🔍 Client Transactions Search")
 
-# Step 1: Enter search keyword
 search_keyword = st.text_input("Enter client name keyword:")
 
 if search_keyword:
-    # Step 2: Find matches
-    matching_clients = new_df[new_df["Client"].str.contains(search_keyword, case=False, na=False)]["Client"].unique()
+    # Split user input into individual words
+    keywords = search_keyword.split()
+
+    # Build regex to match ANY of the words
+    pattern = "|".join(keywords)
+
+    # Find matches in Client column
+    matching_clients = new_df[new_df["Client"].str.contains(pattern, case=False, na=False)]["Client"].unique()
 
     if len(matching_clients) == 0:
         st.error("❌ No clients found with that keyword.")
     else:
         st.subheader("✅ Matching Clients")
-
+        st.write(matching_clients)
         # Step 3: Let user click one client (radio button)
         selected_client = st.radio("Select a client:", matching_clients)
 
@@ -60,3 +65,4 @@ if search_keyword:
                     f"<span style='color:red; font-weight:bold'>Balance: {balance}</span>",
                     unsafe_allow_html=True
                 )
+
