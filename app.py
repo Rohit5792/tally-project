@@ -42,7 +42,7 @@ if search_keyword:
         st.error("❌ No clients found with that keyword.")
     else:
         st.subheader("✅ Matching Clients")
-        st.write(matching_clients)
+        
         # Step 3: Let user click one client (radio button)
         selected_client = st.radio("Select a client:", matching_clients)
 
@@ -65,4 +65,5 @@ if search_keyword:
                     f"<span style='color:red; font-weight:bold'>Balance: {balance}</span>",
                     unsafe_allow_html=True
                 )
+
 
